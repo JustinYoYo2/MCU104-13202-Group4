@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProgressFragment">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <TextView
+            android:id="@+id/txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="準備中..."
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:indeterminate="true"
+            android:progressTint="#2196F3"
+            android:layout_marginBottom="40dp"/>
+
+        <Button
+            android:id="@+id/btnCancelProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中斷工作"
+            android:backgroundTint="#F44336"/>
+
+    </LinearLayout>
+
+</FrameLayout>
