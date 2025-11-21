@@ -4,7 +4,7 @@
 <p>除了 <strong>SummonSimulator</strong> 專案檔案，請不要修改或刪除其他檔案。</p>
 
 <h2 style="color:#48C9B0;">2. 請在自己的分支工作</h2>
-<p>編輯 SummonSimulator 時，每個人都要建立自己的 <strong>branches</strong>（分支）進行 commit 與 push。</p>
+<p>編輯 SummonSimulator 時，每個人都要建立自己的 <strong>branches</strong>（分支）進行 commit 與 push(下方教學)。</p>
 
 <h2 style="color:#48C9B0;">3. 不要動別人負責的檔案(特別是以下)</h2>
 <ul>
@@ -14,7 +14,7 @@
 </ul>
 
 <h2 style="color:#48C9B0;">4. 資料庫操作統一使用 <strong>GachaSettings</strong></h2>
-<p>請不要直接操作 SQLite，要使用提供的方法以確保資料一致。</p>
+<p>請不要直接操作 SQLite，要使用GachaSettings提供的方法呼叫(下方教學)。</p>
 
 <h2 style="color:#48C9B0;">5. 圖片檔統一放在 <strong>drawable/</strong></h2>
 <p>有問題可私訊管理者。</p>
