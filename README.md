@@ -6,7 +6,7 @@
 <h2 style="color:#48C9B0;">2. 請在自己的分支工作</h2>
 <p>編輯 SummonSimulator 時，每個人都要建立自己的 <strong>branches</strong>（分支）進行 commit 與 push。</p>
 
-<h2 style="color:#48C9B0;">3. 不要動別人負責的檔案</h2>
+<h2 style="color:#48C9B0;">3. 不要動別人負責的檔案(特別是以下)</h2>
 <ul>
   <li>GachaSettings</li>
   <li>SSDBHelper</li>
