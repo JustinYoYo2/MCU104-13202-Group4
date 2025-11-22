@@ -61,6 +61,38 @@
 
 <h3 style="color:#F5B041;">7. Push</h3>
 
+1. 切換到 main 分支
+
+在專案資料夾按右鍵 → TortoiseGit → 切換/檢出(Switch/Checkout)
+選擇 main → 確定
+
+2. 更新 main（拉取最新程式碼）
+
+右鍵專案資料夾 → TortoiseGit → 拉取(Pull)
+來源選 origin/main → 確定
+
+3. 切換或建立你的功能分支
+
+右鍵 → TortoiseGit → 切換/檢出(Switch/Checkout)
+選擇既有分支，或點 建立新分支
+命名方式建議：feature/你的名字-功能
+
+4. 將 main 合併到你的分支（保持分支最新）
+
+右鍵 → TortoiseGit → 合併(Merge)
+選擇 main → 確定
+
+5. 開始撰寫程式碼
+6. 新增檔案 / 提交 Commit
+
+右鍵 → Git 提交 → “master”/目前分支(Commit)
+（如有未追蹤檔案需先按 加入(Add)）
+
+7. 推送 Push
+
+右鍵 → TortoiseGit → 推送(Push)
+推送到 origin/你的功能分支
+
 <hr>
 
 <h1 style="color:#BB8FCE;">分支教學</h1>
