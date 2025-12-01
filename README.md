@@ -150,3 +150,5 @@ dbHelper.updateStoneCount(500)
 GachaSettings settings = GachaSettings.load(this);
 int currentStones = settings.getStoneCount();
 </code></pre>
+
+git clone -b feature/LouisLiang --single-branch https://github.com/JustinYoYo2/MCU104-13202-Group4.git
