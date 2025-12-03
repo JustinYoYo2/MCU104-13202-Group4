@@ -22,14 +22,15 @@ class MainContentFragment : Fragment() {
 
         val startButton: Button = view.findViewById(R.id.btn_start_gacha)
         startButton.setOnClickListener {
-            val intent = Intent(activity, GachaActivity::class.java)
+            val intent = Intent(requireActivity(), GachaActivity::class.java)
             startActivity(intent)
         }
 
         val staffButton: Button = view.findViewById(R.id.btn_staff_list)
         staffButton.setOnClickListener {
-            val intent = Intent(activity, StaffActivity::class.java)
+            val intent = Intent(requireActivity(), StaffActivity::class.java)
             startActivity(intent)
         }
+
     }
 }

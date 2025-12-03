@@ -1,10 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".GachaActivity">
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:minWidth="48dp"
+        android:layout_height="48dp"
+        android:text="返回"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_border_white_bg"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:backgroundTint="@null" />
+
+    <TextView
+        android:id="@+id/text_stone_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="石頭數量: 9999"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:background="@drawable/button_border_white_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <VideoView
+        android:id="@+id/gacha_animation_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@id/button_single_draw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_back"
+        android:background="#CCCCCC" />
+
+    <Button
+        android:id="@+id/button_single_draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一抽"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_border_white_bg"
+
+        app:backgroundTint="@null"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_ten_draw"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_ten_draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="十抽"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_border_white_bg"
+
+        app:backgroundTint="@null"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_single_draw"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
