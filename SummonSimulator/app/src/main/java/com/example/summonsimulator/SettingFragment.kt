@@ -5,55 +5,109 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SettingFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SettingFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private lateinit var editOneStarRate: EditText
+    private lateinit var editTwoStarRate: EditText
+    private lateinit var editThreeStarRate: EditText
+    private lateinit var editPoolRate: EditText
+    private lateinit var editPity: EditText
+    private lateinit var editOnePullCost: EditText
+    private lateinit var editTenPullCost: EditText
+
+    private lateinit var dbHelper: SSDBHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_setting, container, false)
+
+
+        editOneStarRate = view.findViewById(R.id.edit_one_star_rate)
+        editTwoStarRate = view.findViewById(R.id.edit_two_star_rate)
+        editThreeStarRate = view.findViewById(R.id.edit_three_star_rate)
+        editPoolRate = view.findViewById(R.id.edit_pool_rate)
+        editPity = view.findViewById(R.id.edit_pity)
+        editOnePullCost = view.findViewById(R.id.edit_one_pull_cost)
+        editTenPullCost = view.findViewById(R.id.edit_ten_pull_cost)
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SettingFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SettingFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+        context?.let {
+            dbHelper = SSDBHelper(it)
+
+            loadSettingsToUi()
+        }
+    }
+
+
+    private fun loadSettingsToUi() {
+        val settings = dbHelper.getGachaSettings()
+
+        if (settings != null) {
+            // 機率設定
+            editOneStarRate.setText(settings.getRate1Star().toString())
+            editTwoStarRate.setText(settings.getRate2Star().toString())
+            editThreeStarRate.setText(settings.getRate3Star().toString())
+            editPoolRate.setText(settings.getRateFocus().toString())
+
+            // 次數/花費設定
+            editPity.setText(settings.getPityCount().toString())
+            editOnePullCost.setText(settings.getCostSingle().toString())
+            editTenPullCost.setText(settings.getCostTen().toString())
+
+        } else {
+            Toast.makeText(context, "無法讀取設定檔，請檢查資料庫！", Toast.LENGTH_LONG).show()
+        }
+    }
+
+
+    private fun saveSettingsFromUi() {
+
+        val rate1Star = editOneStarRate.text.toString().toDoubleOrNull() ?: 0.0
+        val rate2Star = editTwoStarRate.text.toString().toDoubleOrNull() ?: 0.0
+        val rate3Star = editThreeStarRate.text.toString().toDoubleOrNull() ?: 0.0
+        val rateFocus = editPoolRate.text.toString().toDoubleOrNull() ?: 0.0
+
+        val pityCount = editPity.text.toString().toIntOrNull() ?: 0
+        val costSingle = editOnePullCost.text.toString().toIntOrNull() ?: 0
+        val costTen = editTenPullCost.text.toString().toIntOrNull() ?: 0
+
+
+        val currentStoneCount = dbHelper.getStoneCount()
+
+
+        val newSettings = GachaSettings(
+            rate1Star, rate2Star, rate3Star, rateFocus,
+            pityCount, costSingle, costTen,
+            currentStoneCount // 傳入現有石頭數量
+        )
+
+
+        val success = dbHelper.updateGachaSettings(newSettings)
+
+        if (success) {
+            Toast.makeText(context, "設定已儲存！", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "儲存失敗！", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        //  離開畫面時自動儲存
+        saveSettingsFromUi()
     }
 }
