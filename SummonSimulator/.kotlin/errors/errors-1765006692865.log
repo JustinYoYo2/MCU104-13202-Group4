@@ -1,0 +1,326 @@
+kotlin version: 2.0.21
+error message: org.jetbrains.kotlin.backend.common.BackendException: Backend Internal error: Exception during IR lowering
+File being compiled: C:/Users/admin/AndroidStudioProjects/SummonSimulator/app/src/main/java/com/example/summonsimulator/ResultActivity.kt
+The root cause java.lang.RuntimeException was thrown at: org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException(CodegenUtil.kt:253)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException$default(CodegenUtil.kt:236)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:65)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:52)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:38)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:27)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:14)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:62)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:371)
+	at org.jetbrains.kotlin.codegen.CodegenFactory.generateModule(CodegenFactory.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateModuleInFrontendIRMode(JvmIrCodegenFactory.kt:433)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.generateCodeFromIr(jvmCompilerPipeline.kt:246)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.compileModulesUsingFrontendIrAndLightTree(jvmCompilerPipeline.kt:142)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:148)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:43)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:103)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:49)
+	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:101)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:464)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:73)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:506)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:423)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally$lambda$9$compile(IncrementalCompilerRunner.kt:249)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally(IncrementalCompilerRunner.kt:267)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:120)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:675)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:92)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1660)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN name:displayGachaResults visibility:private modality:FINAL <> ($this:com.example.summonsimulator.ResultActivity, gridLayout:android.widget.GridLayout, results:java.util.ArrayList<kotlin.String>) returnType:kotlin.Unit
+  $this: VALUE_PARAMETER name:<this> type:com.example.summonsimulator.ResultActivity
+  VALUE_PARAMETER name:gridLayout index:0 type:android.widget.GridLayout
+  VALUE_PARAMETER name:results index:1 type:java.util.ArrayList<kotlin.String>
+  BLOCK_BODY
+    CALL 'public open fun removeAllViews (): kotlin.Unit [fake_override] declared in android.widget.GridLayout' type=kotlin.Unit origin=null
+      $this: GET_VAR 'gridLayout: android.widget.GridLayout declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=android.widget.GridLayout origin=null
+    VAR name:imageSizePx type:kotlin.Int [val]
+      CALL 'public open fun getDimensionPixelSize (p0: kotlin.Int): kotlin.Int declared in android.content.res.Resources' type=kotlin.Int origin=null
+        $this: CALL 'public open fun getResources (): @[FlexibleNullability] android.content.res.Resources? [fake_override] declared in com.example.summonsimulator.ResultActivity' type=@[FlexibleNullability] android.content.res.Resources? origin=GET_PROPERTY
+          $this: GET_VAR '<this>: com.example.summonsimulator.ResultActivity declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=com.example.summonsimulator.ResultActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:result_image_size type:kotlin.Int visibility:public [static] declared in com.example.summonsimulator.R.dimen' type=kotlin.Int superQualifierSymbol=com.example.summonsimulator.R.dimen origin=null
+    CALL 'public open fun setColumnCount (p0: kotlin.Int): kotlin.Unit declared in android.widget.GridLayout' type=kotlin.Unit origin=EQ
+      $this: GET_VAR 'gridLayout: android.widget.GridLayout declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=android.widget.GridLayout origin=null
+      p0: CONST Int type=kotlin.Int value=5
+    CALL 'public open fun setRowCount (p0: kotlin.Int): kotlin.Unit declared in android.widget.GridLayout' type=kotlin.Unit origin=EQ
+      $this: GET_VAR 'gridLayout: android.widget.GridLayout declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=android.widget.GridLayout origin=null
+      p0: CONST Int type=kotlin.Int value=2
+    CALL 'public final fun forEachIndexed <T> (action: kotlin.Function2<@[ParameterName(name = "index")] kotlin.Int, T of kotlin.collections.CollectionsKt.forEachIndexed, kotlin.Unit>): kotlin.Unit [inline] declared in kotlin.collections.CollectionsKt' type=kotlin.Unit origin=null
+      <T>: kotlin.String
+      $receiver: CALL 'public final fun take <T> (n: kotlin.Int): kotlin.collections.List<T of kotlin.collections.CollectionsKt.take> declared in kotlin.collections.CollectionsKt' type=kotlin.collections.List<kotlin.String> origin=null
+        <T>: kotlin.String
+        $receiver: GET_VAR 'results: java.util.ArrayList<kotlin.String> declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=java.util.ArrayList<kotlin.String> origin=null
+        n: CONST Int type=kotlin.Int value=10
+      action: BLOCK type=kotlin.Function2<kotlin.Int, kotlin.String, kotlin.Unit> origin=LAMBDA
+        COMPOSITE type=kotlin.Unit origin=null
+        FUNCTION_REFERENCE 'private final fun displayGachaResults$lambda$9 (this$0: com.example.summonsimulator.ResultActivity, $gridLayout: android.widget.GridLayout, $imageSizePx: kotlin.Int, index: kotlin.Int, resultString: kotlin.String): kotlin.Unit declared in com.example.summonsimulator.ResultActivity' type=kotlin.Function2<kotlin.Int, kotlin.String, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+          this$0: GET_VAR '<this>: com.example.summonsimulator.ResultActivity declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=com.example.summonsimulator.ResultActivity origin=null
+          $gridLayout: GET_VAR 'gridLayout: android.widget.GridLayout declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=android.widget.GridLayout origin=null
+          $imageSizePx: GET_VAR 'val imageSizePx: kotlin.Int [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults' type=kotlin.Int origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:40)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:406)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:423)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:168)
+	at org.jetbrains.kotlin.backend.jvm.FileCodegen.lower(JvmPhases.kt:39)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseFactoriesKt.createFilePhase$lambda$4(PhaseFactories.kt:71)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseBuildersKt$createSimpleNamedCompilerPhase$1.phaseBody(PhaseBuilders.kt:69)
+	at org.jetbrains.kotlin.backend.common.phaser.SimpleNamedCompilerPhase.phaseBody(CompilerPhase.kt:226)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:62)
+	... 44 more
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN INLINE_LAMBDA name:displayGachaResults$lambda$9 visibility:private modality:FINAL <> (this$0:com.example.summonsimulator.ResultActivity, $gridLayout:android.widget.GridLayout, $imageSizePx:kotlin.Int, index:kotlin.Int, resultString:kotlin.String) returnType:kotlin.Unit
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:this$0 index:0 type:com.example.summonsimulator.ResultActivity
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$gridLayout index:1 type:android.widget.GridLayout
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$imageSizePx index:2 type:kotlin.Int
+  VALUE_PARAMETER name:index index:3 type:kotlin.Int
+  VALUE_PARAMETER name:resultString index:4 type:kotlin.String
+  BLOCK_BODY
+    VAR name:$i$a$-forEachIndexed-ResultActivity$displayGachaResults$1 type:kotlin.Int [val]
+      CONST Int type=kotlin.Int value=0
+    VAR name:starLevel type:kotlin.Int [val]
+      BLOCK type=kotlin.Int origin=FOLDED_ELVIS
+        WHEN type=kotlin.Int origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0_elvis_lhs type:kotlin.Int? [val]
+                CALL 'public final fun toIntOrNull (): kotlin.Int? declared in kotlin.text.StringsKt' type=kotlin.Int? origin=null
+                  $receiver: CALL 'public final fun substringBefore$default (delimiter: kotlin.String, missingDelimiterValue: kotlin.String?, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.String declared in kotlin.text.StringsKt' type=kotlin.String origin=DEFAULT_DISPATCH_CALL
+                    $receiver: GET_VAR 'resultString: kotlin.String declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.String origin=null
+                    delimiter: CONST String type=kotlin.String value="星"
+                    missingDelimiterValue: COMPOSITE type=kotlin.String? origin=DEFAULT_VALUE
+                      CONST Null type=kotlin.String? value=null
+                    $mask0: CONST Int type=kotlin.Int value=2
+                    $handler: CONST Null type=kotlin.Any? value=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0_elvis_lhs: kotlin.Int? [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0_elvis_lhs: kotlin.Int? [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: CONST Int type=kotlin.Int value=1
+    VAR name:characterName type:kotlin.String [val]
+      CALL 'public final fun trim (): kotlin.String [inline] declared in kotlin.text.StringsKt' type=kotlin.String origin=null
+        $receiver: CALL 'public final fun substringBefore$default (delimiter: kotlin.String, missingDelimiterValue: kotlin.String?, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.String declared in kotlin.text.StringsKt' type=kotlin.String origin=DEFAULT_DISPATCH_CALL
+          $receiver: CALL 'public final fun substringAfter$default (delimiter: kotlin.String, missingDelimiterValue: kotlin.String?, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.String declared in kotlin.text.StringsKt' type=kotlin.String origin=DEFAULT_DISPATCH_CALL
+            $receiver: GET_VAR 'resultString: kotlin.String declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.String origin=null
+            delimiter: CONST String type=kotlin.String value=" - "
+            missingDelimiterValue: COMPOSITE type=kotlin.String? origin=DEFAULT_VALUE
+              CONST Null type=kotlin.String? value=null
+            $mask0: CONST Int type=kotlin.Int value=2
+            $handler: CONST Null type=kotlin.Any? value=null
+          delimiter: CONST String type=kotlin.String value=" ("
+          missingDelimiterValue: COMPOSITE type=kotlin.String? origin=DEFAULT_VALUE
+            CONST Null type=kotlin.String? value=null
+          $mask0: CONST Int type=kotlin.Int value=2
+          $handler: CONST Null type=kotlin.Any? value=null
+    VAR name:imageResourceId type:kotlin.Int [val]
+      BLOCK type=kotlin.Int origin=FOLDED_ELVIS
+        WHEN type=kotlin.Int origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp1_elvis_lhs type:kotlin.Int? [val]
+                CALL 'public abstract fun get (key: K of kotlin.collections.Map): V of kotlin.collections.Map? [operator] declared in kotlin.collections.Map' type=kotlin.Int? origin=GET_ARRAY_ELEMENT
+                  $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:characterImageMap type:kotlin.collections.Map<kotlin.String, kotlin.Int> visibility:private [final]' type=kotlin.collections.Map<kotlin.String, kotlin.Int> origin=null
+                    receiver: GET_VAR 'this$0: com.example.summonsimulator.ResultActivity declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=com.example.summonsimulator.ResultActivity origin=null
+                  key: GET_VAR 'val characterName: kotlin.String [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.String origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp1_elvis_lhs: kotlin.Int? [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp1_elvis_lhs: kotlin.Int? [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:head type:kotlin.Int visibility:public [static] declared in com.example.summonsimulator.R.drawable' type=kotlin.Int superQualifierSymbol=com.example.summonsimulator.R.drawable origin=null
+    VAR name:column type:kotlin.Int [val]
+      CALL 'public final fun rem (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=PERC
+        $this: GET_VAR 'index: kotlin.Int declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int origin=null
+        other: CONST Int type=kotlin.Int value=5
+    VAR name:row type:kotlin.Int [val]
+      CALL 'public final fun div (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=DIV
+        $this: GET_VAR 'index: kotlin.Int declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int origin=null
+        other: CONST Int type=kotlin.Int value=5
+    VAR name:frameLayout type:android.widget.FrameLayout [val]
+      CALL 'public final fun apply <T> (block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.StandardKt.apply, kotlin.Unit>): T of kotlin.StandardKt.apply [inline] declared in kotlin.StandardKt' type=android.widget.FrameLayout origin=null
+        <T>: android.widget.FrameLayout
+        $receiver: CONSTRUCTOR_CALL 'public constructor <init> (p0: @[EnhancedNullability] android.content.Context) declared in android.widget.FrameLayout' type=android.widget.FrameLayout origin=null
+          p0: GET_VAR 'this$0: com.example.summonsimulator.ResultActivity declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=com.example.summonsimulator.ResultActivity origin=null
+        block: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<android.widget.FrameLayout, kotlin.Unit> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun displayGachaResults$lambda$9$lambda$3 ($row: kotlin.Int, $column: kotlin.Int): kotlin.Unit declared in com.example.summonsimulator.ResultActivity' type=@[ExtensionFunctionType] kotlin.Function1<android.widget.FrameLayout, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+            $row: GET_VAR 'val row: kotlin.Int [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int origin=null
+            $column: GET_VAR 'val column: kotlin.Int [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int origin=null
+    VAR name:imageView type:android.widget.ImageView [val]
+      CALL 'public final fun apply <T> (block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.StandardKt.apply, kotlin.Unit>): T of kotlin.StandardKt.apply [inline] declared in kotlin.StandardKt' type=android.widget.ImageView origin=null
+        <T>: android.widget.ImageView
+        $receiver: CONSTRUCTOR_CALL 'public constructor <init> (p0: @[FlexibleNullability] android.content.Context?) declared in android.widget.ImageView' type=android.widget.ImageView origin=null
+          p0: GET_VAR 'this$0: com.example.summonsimulator.ResultActivity declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=com.example.summonsimulator.ResultActivity origin=null
+        block: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<android.widget.ImageView, kotlin.Unit> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun displayGachaResults$lambda$9$lambda$6 ($imageResourceId: kotlin.Int, $imageSizePx: kotlin.Int, this$0: com.example.summonsimulator.ResultActivity): kotlin.Unit declared in com.example.summonsimulator.ResultActivity' type=@[ExtensionFunctionType] kotlin.Function1<android.widget.ImageView, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+            $imageResourceId: GET_VAR 'val imageResourceId: kotlin.Int [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int origin=null
+            $imageSizePx: GET_VAR '$imageSizePx: kotlin.Int declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int origin=null
+            this$0: GET_VAR 'this$0: com.example.summonsimulator.ResultActivity declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=com.example.summonsimulator.ResultActivity origin=null
+    CALL 'public open fun addView (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit [fake_override] declared in android.widget.FrameLayout' type=kotlin.Unit origin=null
+      $this: GET_VAR 'val frameLayout: android.widget.FrameLayout [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=android.widget.FrameLayout origin=null
+      p0: GET_VAR 'val imageView: android.widget.ImageView [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=android.widget.ImageView origin=null
+    VAR name:starTextView type:android.widget.TextView [val]
+      CALL 'public final fun apply <T> (block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.StandardKt.apply, kotlin.Unit>): T of kotlin.StandardKt.apply [inline] declared in kotlin.StandardKt' type=android.widget.TextView origin=null
+        <T>: android.widget.TextView
+        $receiver: CONSTRUCTOR_CALL 'public constructor <init> (p0: @[FlexibleNullability] android.content.Context?) declared in android.widget.TextView' type=android.widget.TextView origin=null
+          p0: GET_VAR 'this$0: com.example.summonsimulator.ResultActivity declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=com.example.summonsimulator.ResultActivity origin=null
+        block: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<android.widget.TextView, kotlin.Unit> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun displayGachaResults$lambda$9$lambda$8 ($starLevel: kotlin.Int): kotlin.Unit declared in com.example.summonsimulator.ResultActivity' type=@[ExtensionFunctionType] kotlin.Function1<android.widget.TextView, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+            $starLevel: GET_VAR 'val starLevel: kotlin.Int [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=kotlin.Int origin=null
+    CALL 'public open fun addView (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit [fake_override] declared in android.widget.FrameLayout' type=kotlin.Unit origin=null
+      $this: GET_VAR 'val frameLayout: android.widget.FrameLayout [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=android.widget.FrameLayout origin=null
+      p0: GET_VAR 'val starTextView: android.widget.TextView [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=android.widget.TextView origin=null
+    CALL 'public open fun addView (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit [fake_override] declared in android.widget.GridLayout' type=kotlin.Unit origin=null
+      $this: GET_VAR '$gridLayout: android.widget.GridLayout declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=android.widget.GridLayout origin=null
+      p0: GET_VAR 'val frameLayout: android.widget.FrameLayout [val] declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9' type=android.widget.FrameLayout origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.generateLambdaBody(IrSourceCompilerForInline.kt:67)
+	at org.jetbrains.kotlin.codegen.inline.ExpressionLambda.generateLambdaBody(LambdaInfo.kt:72)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genValueAndPut(IrInlineCodegen.kt:100)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleParameter(ExpressionCodegen.kt:616)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:644)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 54 more
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN INLINE_LAMBDA name:displayGachaResults$lambda$9$lambda$3 visibility:private modality:FINAL <> ($receiver:android.widget.FrameLayout, $row:kotlin.Int, $column:kotlin.Int) returnType:kotlin.Unit
+  $receiver: VALUE_PARAMETER name:$this$apply type:android.widget.FrameLayout
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$row index:0 type:kotlin.Int
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$column index:1 type:kotlin.Int
+  BLOCK_BODY
+    VAR name:$i$a$-apply-ResultActivity$displayGachaResults$1$frameLayout$1 type:kotlin.Int [val]
+      CONST Int type=kotlin.Int value=0
+    CALL 'public open fun setLayoutParams (p0: @[FlexibleNullability] android.view.ViewGroup.LayoutParams?): kotlin.Unit [fake_override] declared in android.widget.FrameLayout' type=kotlin.Unit origin=EQ
+      $this: GET_VAR '$this$apply: android.widget.FrameLayout declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9$lambda$3' type=android.widget.FrameLayout origin=null
+      p0: CALL 'public final fun apply <T> (block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.StandardKt.apply, kotlin.Unit>): T of kotlin.StandardKt.apply [inline] declared in kotlin.StandardKt' type=android.widget.GridLayout.LayoutParams origin=null
+        <T>: android.widget.GridLayout.LayoutParams
+        $receiver: CONSTRUCTOR_CALL 'public constructor <init> (p0: @[FlexibleNullability] android.widget.GridLayout.Spec?, p1: @[FlexibleNullability] android.widget.GridLayout.Spec?) declared in android.widget.GridLayout.LayoutParams' type=android.widget.GridLayout.LayoutParams origin=null
+          p0: CALL 'public open fun spec (p0: kotlin.Int): @[FlexibleNullability] android.widget.GridLayout.Spec? declared in android.widget.GridLayout' type=@[FlexibleNullability] android.widget.GridLayout.Spec? origin=null
+            p0: GET_VAR '$row: kotlin.Int declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9$lambda$3' type=kotlin.Int origin=null
+          p1: CALL 'public open fun spec (p0: kotlin.Int): @[FlexibleNullability] android.widget.GridLayout.Spec? declared in android.widget.GridLayout' type=@[FlexibleNullability] android.widget.GridLayout.Spec? origin=null
+            p0: GET_VAR '$column: kotlin.Int declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9$lambda$3' type=kotlin.Int origin=null
+        block: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<android.widget.GridLayout.LayoutParams, kotlin.Unit> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun displayGachaResults$lambda$9$lambda$3$lambda$2 (): kotlin.Unit declared in com.example.summonsimulator.ResultActivity' type=@[ExtensionFunctionType] kotlin.Function1<android.widget.GridLayout.LayoutParams, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.generateLambdaBody(IrSourceCompilerForInline.kt:67)
+	at org.jetbrains.kotlin.codegen.inline.ExpressionLambda.generateLambdaBody(LambdaInfo.kt:72)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genValueAndPut(IrInlineCodegen.kt:100)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleParameter(ExpressionCodegen.kt:616)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:644)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitVariable(ExpressionCodegen.kt:790)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitVariable(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.declarations.IrVariable.accept(IrVariable.kt:36)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 68 more
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN INLINE_LAMBDA name:displayGachaResults$lambda$9$lambda$3$lambda$2 visibility:private modality:FINAL <> ($receiver:android.widget.GridLayout.LayoutParams) returnType:kotlin.Unit
+  $receiver: VALUE_PARAMETER name:$this$apply type:android.widget.GridLayout.LayoutParams
+  BLOCK_BODY
+    VAR name:$i$a$-apply-ResultActivity$displayGachaResults$1$frameLayout$1$1 type:kotlin.Int [val]
+      CONST Int type=kotlin.Int value=0
+    SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:width type:kotlin.Int visibility:public declared in android.view.ViewGroup.LayoutParams' type=kotlin.Unit superQualifierSymbol=android.widget.GridLayout.LayoutParams origin=EQ
+      receiver: GET_VAR '$this$apply: android.widget.GridLayout.LayoutParams declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9$lambda$3$lambda$2' type=android.widget.GridLayout.LayoutParams origin=null
+      value: CONST Int type=kotlin.Int value=-2
+    SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:height type:kotlin.Int visibility:public declared in android.view.ViewGroup.LayoutParams' type=kotlin.Unit superQualifierSymbol=android.widget.GridLayout.LayoutParams origin=EQ
+      receiver: GET_VAR '$this$apply: android.widget.GridLayout.LayoutParams declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9$lambda$3$lambda$2' type=android.widget.GridLayout.LayoutParams origin=null
+      value: CONST Int type=kotlin.Int value=-2
+    CALL 'public open fun setMargins (p0: kotlin.Int, p1: kotlin.Int, p2: kotlin.Int, p3: kotlin.Int): kotlin.Unit [fake_override] declared in android.widget.GridLayout.LayoutParams' type=kotlin.Unit origin=null
+      $this: GET_VAR '$this$apply: android.widget.GridLayout.LayoutParams declared in com.example.summonsimulator.ResultActivity.displayGachaResults$lambda$9$lambda$3$lambda$2' type=android.widget.GridLayout.LayoutParams origin=null
+      p0: CONST Int type=kotlin.Int value=4
+      p1: CONST Int type=kotlin.Int value=4
+      p2: CONST Int type=kotlin.Int value=4
+      p3: CONST Int type=kotlin.Int value=4
+    SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:gravity type:kotlin.Int visibility:public [final,static] declared in android.R.attr' type=kotlin.Unit superQualifierSymbol=android.R.attr origin=EQ
+      value: CONST Int type=kotlin.Int value=17
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.generateLambdaBody(IrSourceCompilerForInline.kt:67)
+	at org.jetbrains.kotlin.codegen.inline.ExpressionLambda.generateLambdaBody(LambdaInfo.kt:72)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genValueAndPut(IrInlineCodegen.kt:100)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleParameter(ExpressionCodegen.kt:616)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:644)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.gen(ExpressionCodegen.kt:217)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrCallGenerator.genValueAndPut(IrCallGenerator.kt:48)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleParameter(ExpressionCodegen.kt:616)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:644)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 85 more
+Caused by: java.lang.AssertionError: access of const val: SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:gravity type:kotlin.Int visibility:public [final,static] declared in android.R.attr' type=kotlin.Unit superQualifierSymbol=android.R.attr origin=EQ
+  value: CONST Int type=kotlin.Int value=17
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:861)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitSetField(IrElementVisitor.kt:206)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:908)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrSetField.accept(IrSetField.kt:21)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 105 more
+
+

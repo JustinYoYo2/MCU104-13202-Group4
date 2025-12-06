@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SummonSimulator">
         <activity
+            android:name=".ResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".StaffActivity"
             android:exported="false" />
         <activity

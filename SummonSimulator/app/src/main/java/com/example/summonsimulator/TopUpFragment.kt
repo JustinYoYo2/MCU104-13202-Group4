@@ -66,7 +66,7 @@ class TopUpFragment : Fragment() {
         // --- 2. 商品圖片 (新增的部分) ---
         val ivProduct = ImageView(context).apply {
             // ★這裡讀取你剛剛放入的 stone.png
-            //setImageResource(R.drawable.stone)
+            setImageResource(R.drawable.stone)
 
             // 設定圖片大小 (例如 150x150)
             val imgParams = LinearLayout.LayoutParams(150, 150)

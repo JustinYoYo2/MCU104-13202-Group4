@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="result_image_size">90dp</dimen>
+    <dimen name="result_single_image_size">140dp</dimen>
+    <dimen name="result_border_width">2dp</dimen>
+</resources>

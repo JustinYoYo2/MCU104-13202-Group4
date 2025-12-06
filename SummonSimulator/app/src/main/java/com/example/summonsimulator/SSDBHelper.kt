@@ -14,7 +14,8 @@ class SSDBHelper
         val SQL_CREATE_RESOURCES_TABLE = "CREATE TABLE " +
                 TABLE_RESOURCES + " (" +
                 "_id INTEGER PRIMARY KEY," +
-                COL_STONE_COUNT + " INTEGER NOT NULL DEFAULT 0" +
+                COL_STONE_COUNT + " INTEGER NOT NULL DEFAULT 0," +
+                COL_PITY_COUNTER + " INTEGER NOT NULL DEFAULT 0" + // 🌟 新增保底計數欄位
                 ");"
 
         val SQL_CREATE_SETTINGS_TABLE = "CREATE TABLE " +
@@ -35,6 +36,7 @@ class SSDBHelper
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        // 注意: 如果您在正式專案中修改資料庫結構，通常需要更複雜的 ALTER TABLE 邏輯
         db.execSQL("DROP TABLE IF EXISTS $TABLE_RESOURCES")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_SETTINGS")
         onCreate(db)
@@ -44,6 +46,7 @@ class SSDBHelper
         val resourceValues = ContentValues()
         resourceValues.put("_id", 1)
         resourceValues.put(COL_STONE_COUNT, 1000)
+        resourceValues.put(COL_PITY_COUNTER, 0) // 🌟 初始保底計數為 0
         db.insert(TABLE_RESOURCES, null, resourceValues)
 
         val settingValues = ContentValues()
@@ -78,21 +81,52 @@ class SSDBHelper
         return stoneCount
     }
 
+    // 讀取當前保底計數 🌟 新增
+    fun getPityCounter(): Int {
+        val db = this.readableDatabase
+        var pityCount = 0
+        val query = "SELECT $COL_PITY_COUNTER FROM $TABLE_RESOURCES WHERE _id = 1"
+
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(query, null)
+            if (cursor.moveToFirst()) {
+                pityCount = cursor.getInt(cursor.getColumnIndexOrThrow(COL_PITY_COUNTER))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            cursor?.close()
+        }
+        return pityCount
+    }
+
     // 更新石頭數量
     fun updateStoneCount(delta: Int): Boolean {
         val db = this.writableDatabase
-
-        // 讀取當前數量並計算新數量
         val currentCount = getStoneCount()
         val newCount = currentCount + delta
-
-        // 檢查：如果嘗試扣除導致負數，則不允許 (通常在 GachaActivity 中先檢查)
         if (newCount < 0 && delta < 0) {
             return false
         }
 
         val values = ContentValues()
         values.put(COL_STONE_COUNT, newCount)
+
+        val rowsAffected = db.update(
+            TABLE_RESOURCES,
+            values,
+            "_id = ?",
+            arrayOf("1")
+        )
+        return rowsAffected == 1
+    }
+
+    // 更新保底計數 🌟 新增
+    fun updatePityCounter(count: Int): Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(COL_PITY_COUNTER, count)
 
         val rowsAffected = db.update(
             TABLE_RESOURCES,
@@ -157,11 +191,12 @@ class SSDBHelper
 
     companion object {
         private const val DATABASE_NAME = "gacha_simulator.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
 
-        //儲存石頭數量
+        //儲存石頭數量與保底計數
         const val TABLE_RESOURCES: String = "Resources"
         const val COL_STONE_COUNT: String = "stone_count"
+        const val COL_PITY_COUNTER: String = "pity_counter" // 🌟 新增常數
 
         //儲存所有機率和消耗設定
         const val TABLE_SETTINGS: String = "Settings"
