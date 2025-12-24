@@ -31,5 +31,11 @@ class MainContentFragment : Fragment() {
             val intent = Intent(activity, StaffActivity::class.java)
             startActivity(intent)
         }
+
+        val redeemButton: Button = view.findViewById(R.id.btn_redeem)
+        redeemButton.setOnClickListener {
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

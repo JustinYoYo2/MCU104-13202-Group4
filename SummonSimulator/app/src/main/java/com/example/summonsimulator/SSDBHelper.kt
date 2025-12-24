@@ -5,7 +5,6 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.summonsimulator.GachaSettings
 
 class SSDBHelper
     (context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -207,5 +206,25 @@ class SSDBHelper
         const val COL_PITY_COUNT: String = "pity_count"
         const val COL_COST_SINGLE: String = "cost_single"
         const val COL_COST_TEN: String = "cost_ten"
+    }
+
+    fun resetStoneCount(newAmount: Int): Boolean {
+        val db = this.writableDatabase // 修正為 Kotlin 屬性寫法
+        val values = ContentValues()
+
+        // 🌟 修正：使用正確的常數 COL_STONE_COUNT ("stone_count")
+        values.put(COL_STONE_COUNT, newAmount)
+
+        // 🌟 修正：使用正確的表名 TABLE_RESOURCES ("Resources")
+        val rows = db.update(
+            TABLE_RESOURCES,
+            values,
+            "_id = ?",
+            arrayOf("1")
+        )
+
+        // 注意：在方法結束後不一定要關閉 db，除非你確定後續不會再用到，
+        // 但通常在 Helper 內頻繁開啟關閉會影響效能。
+        return rows > 0
     }
 }
