@@ -83,16 +83,18 @@ class GachaActivity : AppCompatActivity() {
         slideshowHandler.postDelayed(slideshowRunnable, SLIDE_DELAY_MS)
     }
 
-    override fun onPause() {
-        super.onPause()
-        slideshowHandler.removeCallbacks(slideshowRunnable)
-    }
-
     override fun onResume() {
         super.onResume()
+        TimeTracker.start() // 🌟 開始計時
         if (::slideshowRunnable.isInitialized) {
             slideshowHandler.postDelayed(slideshowRunnable, SLIDE_DELAY_MS)
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        TimeTracker.stop(this, "抽卡頁面") // 🌟 結束計時並存入
+        slideshowHandler.removeCallbacks(slideshowRunnable)
     }
 
     private fun updateGachaInfoDisplay() {
@@ -130,4 +132,5 @@ class GachaActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
 }

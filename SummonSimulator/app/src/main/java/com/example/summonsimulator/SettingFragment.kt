@@ -105,9 +105,15 @@ class SettingFragment : Fragment() {
         }
     }
 
+
+    override fun onResume() {
+        super.onResume()
+        TimeTracker.start() // 🌟 開始計時
+    }
+
     override fun onPause() {
         super.onPause()
-        //  離開畫面時自動儲存
         saveSettingsFromUi()
+        TimeTracker.stop(requireContext(), "設定頁面") // 🌟 結束計時
     }
 }

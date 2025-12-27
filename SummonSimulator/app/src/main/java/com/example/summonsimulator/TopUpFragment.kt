@@ -134,5 +134,12 @@ class TopUpFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         updateDisplay()
+        TimeTracker.start() // 🌟 開始計時
     }
+
+    override fun onPause() {
+        super.onPause()
+        TimeTracker.stop(requireContext(), "儲值頁面") // 🌟 結束計時
+    }
+
 }

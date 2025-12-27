@@ -38,4 +38,14 @@ class MainContentFragment : Fragment() {
             startActivity(intent)
         }
     }
+    override fun onResume() {
+        super.onResume()
+        TimeTracker.start()
+    }
+
+    // 🌟 新增：當使用者點擊按鈕跳轉或切換分頁時結束計時
+    override fun onPause() {
+        super.onPause()
+        TimeTracker.stop(requireContext(), "主首頁(MainContentFragment)")
+    }
 }
